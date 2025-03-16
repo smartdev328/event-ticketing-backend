@@ -1,23 +1,20 @@
+// src/app.module.ts
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { GraphQLModule } from '@nestjs/graphql';
 
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { EventsModule } from './events/events.module';
+import { graphqlConfig } from './common/graphql-config';
+import ormgconfig from './ormconfig';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot({
+      ...ormgconfig,
       type: 'postgres',
-      host: 'localhost',
-      port: 5432,
-      username: 'postgres',
-      password: 'postgres',
-      database: 'my_database',
-      entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      synchronize: true, // only for dev! disable in production
     }),
+    GraphQLModule.forRoot(graphqlConfig),
+    EventsModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
 })
 export class AppModule {}
