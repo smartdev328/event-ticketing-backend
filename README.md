@@ -4,6 +4,16 @@
 $ npm install
 ```
 
+Run this command to migrate database tables
+```bash
+$ npm run db:migrate
+```
+
+Run seed command to seed data
+```bash
+$ npm run seed
+```
+
 ## Compile and run the project
 
 ```bash
