@@ -1,5 +1,6 @@
 // seed.spec.ts
-import { AppDataSource, seed } from './seed';
+import { seed } from './seed';
+import AppDataSource from '../data-source';
 import { Event } from '../entities/event.entity';
 import { Purchase } from '../entities/purchase.entity';
 

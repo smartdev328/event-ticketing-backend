@@ -1,12 +1,7 @@
 // seed.ts
-import { DataSource } from 'typeorm';
-import ormconfig from '../ormconfig';
-import { Event } from '../entities/event.entity';
 
-export const AppDataSource = new DataSource({
-  ...ormconfig,
-  type: 'postgres',
-});
+import AppDataSource from '../data-source';
+import { Event } from '../entities/event.entity';
 
 export async function seed(): Promise<void> {
   try {
@@ -67,3 +62,5 @@ export async function seed(): Promise<void> {
 if (require.main === module) {
   seed();
 }
+export { AppDataSource };
+
